@@ -62,6 +62,15 @@ export const formatFixedNumber = ( number: ethers.FixedNumber, displayDecimals =
   return formatBigNumber( ethers.BigNumber.from( leftSide ), displayDecimals, decimals )
 }
 
+/**
+ * Formats a number with custom decimal places
+ * i.e. Formats 9763410526137450427.1196 into 9.763 (3 display decimals) - returning a number.
+ */
+export const roundNumber = ( number: number, displayDecimals = 3 ): number => {
+  const factorOfTen = 10 ** displayDecimals
+  return Math.round( number * factorOfTen ) / factorOfTen
+}
+
 export const formatLocalisedCompactNumber = ( number: number ): string => {
   const codeFromStorage = getLanguageCodeFromLS()
   return new Intl.NumberFormat( codeFromStorage, {

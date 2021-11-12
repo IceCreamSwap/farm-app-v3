@@ -1,33 +1,36 @@
 import React from 'react';
-import { ChartIcon, CommunityIcon, Flex, Heading, Image, SwapIcon, Text } from 'uikit';
+import { ChartIcon, CommunityIcon, FireIcon, Flex, Heading, Image, SwapIcon, Text } from 'uikit';
 import { useTranslation } from 'contexts/Localization';
 import useTheme from 'hooks/useTheme';
-import { formatLocalisedCompactNumber } from 'utils/formatBalance';
+import { formatNumber } from 'utils/formatBalance';
 import IconCard, { IconCardData } from '../IconCard';
 import StatCardContent from './StatCardContent';
-
-// Values fetched from bitQuery effective 6/9/21
-const txCount = 30841921;
-const addressCount = 2751624;
+import { usePollFarmsPublicData } from '../../../../state/farms/hooks';
+import { useFetchPublicPoolsData } from '../../../../state/pools/hooks';
+import { useTotalValueLocked } from '../../../../hooks/useTotalValueLocked';
 
 const Stats = () => {
     const { t } = useTranslation();
     const { theme } = useTheme();
 
-    const tvlString = '-';
-    const trades = formatLocalisedCompactNumber( txCount );
-    const users = formatLocalisedCompactNumber( addressCount );
+    usePollFarmsPublicData()
+    useFetchPublicPoolsData()
 
-    const UsersCardData: IconCardData = {
-        icon: <CommunityIcon color="secondary" width="36px"/>,
-    };
+    const totalValueLocked = useTotalValueLocked()
+    const tvlString = totalValueLocked || '_'
 
-    const TradesCardData: IconCardData = {
-        icon: <SwapIcon color="secondary" width="36px"/>,
+    const totalBurnedTokens = formatNumber( 8765, 0, 0 ); // TODO: GET FROM CONTRACT.
+
+    const BurnedCardData: IconCardData = {
+        icon: <FireIcon color="secondary" width="36px"/>,
     };
 
     const StakedCardData: IconCardData = {
         icon: <ChartIcon color="secondary" width="36px"/>,
+    };
+
+    const DoxedDevsCardData: IconCardData = {
+        icon: <CommunityIcon color="secondary" width="36px"/>,
     };
 
     return (
@@ -46,7 +49,7 @@ const Stats = () => {
             </Text>
 
             <Flex flexDirection={ [ 'column', null, null, 'row' ] }>
-                <IconCard { ...TradesCardData } mr={ [ null, null, null, '16px' ] } mb={ [ '16px', null, null, '0' ] }>
+                <IconCard { ...BurnedCardData } mr={ [ null, null, null, '16px' ] } mb={ [ '16px', null, null, '0' ] }>
                     <StatCardContent
                         headingText={ t( '%burned% burned', { burned: totalBurnedTokens } ) }
                         bodyText={ t( 'Total of burned VANI' ) }
@@ -60,7 +63,7 @@ const Stats = () => {
                         highlightColor={ theme.colors.secondary }
                     />
                 </IconCard>
-                <IconCard { ...UsersCardData } mb={ [ '16px', null, null, '0' ] }>
+                <IconCard { ...DoxedDevsCardData } mb={ [ '16px', null, null, '0' ] }>
                     <StatCardContent
                         headingText={ t( 'doxed devs' ) }
                         bodyText={ t( 'check them out here' ) }
