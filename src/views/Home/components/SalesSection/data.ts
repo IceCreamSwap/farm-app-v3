@@ -1,12 +1,12 @@
 import { SalesSectionProps } from '.'
 
 export const swapSectionData: SalesSectionProps = {
-  headingText: 'Trade anything. No registration, no hassle.',
-  bodyText: 'Trade any token on Binance Smart Chain in seconds, just by connecting your wallet.',
+  headingText: 'NFT\'s Reimagined.',
+  bodyText: 'Unique design incorporating the best amongst the blockchain universe and in Development.',
   reverse: false,
   primaryButton: {
-    to: '/swap',
-    text: 'Trade Now',
+    to: '/nfts',
+    text: 'Check out',
     external: false,
   },
   secondaryButton: {
@@ -25,8 +25,8 @@ export const swapSectionData: SalesSectionProps = {
 }
 
 export const earnSectionData: SalesSectionProps = {
-  headingText: 'Earn passive income with crypto.',
-  bodyText: 'IceCream makes it easy to make your crypto work for you.',
+  headingText: 'DAO.',
+  bodyText: `Community engagement has never had a better place. VANI for association.\nDecisiveness is for the decentralized.`,
   reverse: true,
   primaryButton: {
     to: '/farms',

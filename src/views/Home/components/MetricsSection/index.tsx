@@ -33,25 +33,23 @@ const Stats = () => {
     return (
         <Flex justifyContent="center" alignItems="center" flexDirection="column">
             <Image src="/images/logo/logo-vertical.svg" alt="IceCream" width={ 110 } height={ 110 }/>
-            <Heading textAlign="center" scale="xl" color="#ffffff">
-                { t( 'Used by millions.' ) }
+            <Heading textAlign="center" scale="xl" mt="24px" mb="32px" color="#ffffff">
+                { t( 'Audit and Certified.' ) }
             </Heading>
-            <Heading textAlign="center" scale="xl" mb="32px" color="#edc5ff">
-                { t( 'Trusted with billions.' ) }
-            </Heading>
+
             <Text textAlign="center" color="#feb5ff">
-                { t( 'IceCream has the most users of any decentralized platform, ever.' ) }
+                { t( 'Tried & True. Icecream in wake to become a decentralized autonomous organization with a resilient user base.' ) }
             </Text>
 
             <Text textAlign="center" color="#feb5ff" bold mb="32px">
-                { t( 'Will you join them?' ) }
+                { t( 'Get in line' ) }
             </Text>
 
             <Flex flexDirection={ [ 'column', null, null, 'row' ] }>
                 <IconCard { ...TradesCardData } mr={ [ null, null, null, '16px' ] } mb={ [ '16px', null, null, '0' ] }>
                     <StatCardContent
-                        headingText={ t( '%trades% trades', { trades } ) }
-                        bodyText={ t( 'made in the last 30 days' ) }
+                        headingText={ t( '%burned% burned', { burned: totalBurnedTokens } ) }
+                        bodyText={ t( 'Total of burned VANI' ) }
                         highlightColor={ theme.colors.secondary }
                     />
                 </IconCard>
@@ -64,7 +62,7 @@ const Stats = () => {
                 </IconCard>
                 <IconCard { ...UsersCardData } mb={ [ '16px', null, null, '0' ] }>
                     <StatCardContent
-                        headingText={ t( 'doxed devs') }
+                        headingText={ t( 'doxed devs' ) }
                         bodyText={ t( 'check them out here' ) }
                         highlightColor={ theme.colors.secondary }
                     />

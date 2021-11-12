@@ -43,7 +43,7 @@ const SalesSection: React.FC<SalesSectionProps> = ( props ) => {
           alignSelf={ [ 'flex-start', null, null, 'center' ] }
         >
           <ColoredWordHeading text={ headingTranslatedText }/>
-          <Text color="textSubtle" mb="24px">
+          <Text color="textSubtle" mb="24px" style={{whiteSpace: 'pre-wrap'}}>
             { bodyTranslatedText }
           </Text>
           <Flex>
