@@ -2,9 +2,10 @@ import React from 'react';
 import PageSection from 'components/PageSection';
 import useTheme from 'hooks/useTheme';
 import { PageMeta } from 'components/Layout/Page';
-import { earnSectionData, swapSectionData } from './components/SalesSection/data';
 import MetricsSection from './components/MetricsSection';
-import SalesSection from './components/SalesSection';
+import StarsEffect from './components/StarsEffect';
+import NftsSection from './components/NftsSection';
+import DaoSection from './components/DaoSection';
 import { InnerWedgeWrapper, OuterWedgeWrapper, WedgeTopLeft, WedgeTopRight } from './components/WedgeSvgs';
 
 const Home: React.FC = () => {
@@ -17,7 +18,7 @@ const Home: React.FC = () => {
             <PageMeta/>
             <PageSection
                 innerProps={ { style: { margin: '0', width: '100%' } } }
-                background={
+                backgroundColor={
                     theme.isDark
                         ? 'linear-gradient(180deg, #590059 22%, #280028 100%)'
                         : 'linear-gradient(180deg, #c76ec9 22%, #8b0a8b 100%)'
@@ -29,8 +30,8 @@ const Home: React.FC = () => {
             </PageSection>
 
             <PageSection
-                innerProps={ { style: HomeSectionContainerStyles } }
-                background={ theme.colors.background }
+                innerProps={ { style: { ...HomeSectionContainerStyles, overflow: 'hidden' } } }
+                backgroundImage='radial-gradient(ellipse at bottom, #301236 0%, #090a0f 100%);'
                 index={ 2 }
                 hasCurvedDivider={ false }
             >
@@ -39,25 +40,18 @@ const Home: React.FC = () => {
                         <WedgeTopLeft/>
                     </InnerWedgeWrapper>
                 </OuterWedgeWrapper>
-                <SalesSection { ...swapSectionData } />
+                <StarsEffect/>
+                <NftsSection/>
             </PageSection>
 
             <PageSection
                 innerProps={ { style: HomeSectionContainerStyles } }
-                background={
-                    theme.isDark
-                        ? 'linear-gradient(111.68deg, #3f003f 22%, #5e005e 100%)'
-                        : 'linear-gradient(111.68deg, #ffd5fb 22%, #efdfef 100%)'
-                }
-                index={ 2 }
+                backgroundImage='/images/home/dao/background.png'
+                backgroundColor='#000000'
+                index={ 3 }
                 hasCurvedDivider={ false }
             >
-                <OuterWedgeWrapper>
-                    <InnerWedgeWrapper width="150%" top fill={ theme.colors.background }>
-                        <WedgeTopRight/>
-                    </InnerWedgeWrapper>
-                </OuterWedgeWrapper>
-                <SalesSection { ...earnSectionData } />
+                <DaoSection/>
             </PageSection>
         </>
     );
