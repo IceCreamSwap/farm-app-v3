@@ -11,3 +11,8 @@ interface Window {
 }
 
 type SerializedBigNumber = string
+
+declare module '*.mp4' {
+  const src: string;
+  export default src;
+}
