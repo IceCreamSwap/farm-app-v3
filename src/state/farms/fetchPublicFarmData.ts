@@ -64,13 +64,6 @@ const fetchFarm = async ( farm: SerializedFarm ): Promise<PublicFarmData> => {
     quoteTokenDecimals,
   ] = await multicall( erc20, calls )
 
-  if ( tokenBalanceLP <= 0 ) {
-    console.warn( `${ farm.lpSymbol } (${ lpAddress }) has no ${ token.symbol } balance: https://bscscan.com/address/${ token.address }#readContract` )
-  }
-  if ( lpTokenBalanceMC <= 0 ) {
-    console.warn( `Masterchef (${ getMasterChefAddress() }) has no`, farm.lpSymbol, `balance: https://bscscan.com/address/${ lpAddress }#readContract` )
-  }
-
   // Ratio in % of LP tokens that are staked in the MC, vs the total number in circulation
   const lpTokenRatio = new BigNumber( lpTokenBalanceMC ).div( new BigNumber( lpTotalSupply ) )
 

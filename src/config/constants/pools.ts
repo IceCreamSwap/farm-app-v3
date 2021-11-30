@@ -1,20 +1,21 @@
 import { serializeTokens } from './tokens'
 import { PoolCategory, SerializedPoolConfig } from './types'
+import { getMasterChefAddress } from '../../utils/addressHelpers';
 
 const serializedTokens = serializeTokens()
 
 const pools: SerializedPoolConfig[] = [
   {
     sousId: 0,
-    stakingToken: serializedTokens.spk,
-    earningToken: serializedTokens.spk,
+    stakingToken: serializedTokens.vani,
+    earningToken: serializedTokens.vani,
     contractAddress: {
       97: '',
-      56: '0xfc6b1fe618849d36925e3940560aafbd43480272',
+      56: getMasterChefAddress(),
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
-    tokenPerBlock: '1',
+    tokenPerBlock: '0.01',
     sortOrder: 1,
     isFinished: false,
   },

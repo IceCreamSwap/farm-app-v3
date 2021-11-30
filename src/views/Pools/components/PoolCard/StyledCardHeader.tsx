@@ -3,7 +3,7 @@ import { CardHeader, Flex, Heading, Text } from 'uikit'
 import { Token } from '@pancakeswap/sdk'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
-import { TokenPairImage } from 'components/TokenImage'
+import { TokenImage, TokenPairImage } from 'components/TokenImage'
 
 const Wrapper = styled( CardHeader )<{ isFinished?: boolean; background?: string }>`
   background: ${ ( { isFinished, background, theme } ) =>
@@ -50,7 +50,10 @@ const StyledCardHeader: React.FC<{
           </Heading>
           <Text color={ isFinished ? 'textDisabled' : 'textSubtle' }>{ getSubHeading() }</Text>
         </Flex>
-        <TokenPairImage primaryToken={ earningToken } secondaryToken={ stakingToken } width={ 64 } height={ 64 }/>
+        { earningToken.address === stakingToken.address ?
+            <TokenImage height={ 64 } width={ 64 } token={ stakingToken } /> :
+            <TokenPairImage primaryToken={ earningToken } secondaryToken={ stakingToken } width={ 64 } height={ 64 }/>
+        }
       </Flex>
     </Wrapper>
   )

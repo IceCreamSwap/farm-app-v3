@@ -43,7 +43,7 @@ export const getSouschefV2Contract = ( id: number, signer?: ethers.Signer | ethe
   return getContract( sousChefV2, getAddress( config.contractAddress ), signer )
 }
 export const getCakeContract = ( signer?: ethers.Signer | ethers.providers.Provider ) => {
-  return getContract( cakeAbi, tokens.spk.address, signer )
+  return getContract( cakeAbi, tokens.vani.address, signer )
 }
 export const getMasterchefContract = ( signer?: ethers.Signer | ethers.providers.Provider ) => {
   return getContract( masterChef, getMasterChefAddress(), signer )

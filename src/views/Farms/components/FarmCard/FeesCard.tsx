@@ -15,27 +15,27 @@ const FeesContainer = styled.div`
 const FeesCard: React.FC<FeesCardProps> = ( { fees } ) => (
   <FeesContainer>
     <Flex justifyContent="space-between">
-      <Text>Harvest Fee:</Text>
+      <Text small>Harvest Fee:</Text>
       {
         fees?.harvestFee ?
-          <Text bold>{ `${ fees.harvestFee / 100 }%` }</Text> :
-          <Text>-</Text>
+          <Text small bold>{ `${ fees.harvestFee / 100 }%` }</Text> :
+          <Text small>-</Text>
       }
     </Flex>
     <Flex justifyContent="space-between">
-      <Text>Deposit Fee:</Text>
+      <Text small>Deposit Fee:</Text>
       {
         fees?.depositFee ?
-          <Text bold>{ `${ fees.depositFee / 100 }%` }</Text> :
-          <Text>-</Text>
+          <Text small bold>{ `${ fees.depositFee / 100 }%` }</Text> :
+          <Text small>-</Text>
       }
     </Flex>
     <Flex justifyContent="space-between">
-      <Text>Withdraw Fee:</Text>
+      <Text small>Withdraw Fee:</Text>
       {
         fees?.taxWithdraw ?
-          <Text bold>{ `${ fees.taxWithdraw / 100 }%` }</Text> :
-          <Text>-</Text>
+          <Text small bold>{ `${ fees.taxWithdraw / 100 }%` }</Text> :
+          <Text small>-</Text>
       }
     </Flex>
   </FeesContainer>

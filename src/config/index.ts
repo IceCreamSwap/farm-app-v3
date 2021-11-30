@@ -7,8 +7,8 @@ BigNumber.config( {
   DECIMAL_PLACES: 80,
 } )
 
-export const FARM_CAKE_WBNB_PID = 1; // CAKE-WBNB LP
-export const FARM_BUSD_WBNB_PID = 3; // BUSD-WBNB LP
+export const FARM_VANI_WBNB_PID = 1;
+export const FARM_BUSD_WBNB_PID = 3;
 
 // CAKE_PER_BLOCK details
 // 40 CAKE is minted per block

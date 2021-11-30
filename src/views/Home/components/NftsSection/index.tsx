@@ -9,7 +9,7 @@ const ImagesWrapper = styled( Flex )`
     position: relative;
 `;
 
-const NftsSection: React.FC = ( props ) => {
+const NftsSection: React.FC = () => {
     const { t } = useTranslation();
 
     return (

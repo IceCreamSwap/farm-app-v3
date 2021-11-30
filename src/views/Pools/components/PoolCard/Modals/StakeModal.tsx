@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { AutoRenewIcon, BalanceInput, Button, CalculateIcon, Flex, IconButton, Image, Link, Modal, Slider, Text } from 'uikit'
+import { AutoRenewIcon, BalanceInput, Button, Flex, Image, Link, Modal, Slider, Text } from 'uikit'
 import { useTranslation } from 'contexts/Localization'
 import useTheme from 'hooks/useTheme'
 import useToast from 'hooks/useToast'
@@ -8,7 +8,6 @@ import BigNumber from 'bignumber.js'
 import RoiCalculatorModal from 'components/RoiCalculatorModal'
 import { formatNumber, getDecimalAmount, getFullDisplayBalance } from 'utils/formatBalance'
 import { DeserializedPool } from 'state/types'
-import { getInterestBreakdown } from 'utils/compoundApyHelpers'
 import PercentageButton from './PercentageButton'
 import useStakePool from '../../../hooks/useStakePool'
 import useUnstakePool from '../../../hooks/useUnstakePool'
@@ -24,18 +23,6 @@ interface StakeModalProps {
 
 const StyledLink = styled( Link )`
   width: 100%;
-`
-
-const AnnualRoiContainer = styled( Flex )`
-  cursor: pointer;
-`
-
-const AnnualRoiDisplay = styled( Text )`
-  width: 72px;
-  max-width: 72px;
-  overflow: hidden;
-  text-align: right;
-  text-overflow: ellipsis;
 `
 
 const StakeModal: React.FC<StakeModalProps> = ( {
@@ -70,14 +57,6 @@ const StakeModal: React.FC<StakeModalProps> = ( {
 
   const usdValueStaked = new BigNumber( stakeAmount ).times( stakingTokenPrice )
   const formattedUsdValueStaked = !usdValueStaked.isNaN() && formatNumber( usdValueStaked.toNumber() )
-
-  const interestBreakdown = getInterestBreakdown( {
-    principalInUSD: !usdValueStaked.isNaN() ? usdValueStaked.toNumber() : 0,
-    apr,
-    earningTokenPrice,
-  } )
-  const annualRoi = interestBreakdown[3] * pool.earningTokenPrice
-  const formattedAnnualRoi = formatNumber( annualRoi, annualRoi > 10000 ? 0 : 2, annualRoi > 10000 ? 0 : 2 )
 
   const getTokenLink = stakingToken.address ? `/swap?outputCurrency=${ stakingToken.address }` : '/swap'
 
@@ -231,19 +210,6 @@ const StakeModal: React.FC<StakeModalProps> = ( {
         <PercentageButton onClick={ () => handleChangePercent( 75 ) }>75%</PercentageButton>
         <PercentageButton onClick={ () => handleChangePercent( 100 ) }>{ t( 'Max' ) }</PercentageButton>
       </Flex>
-      { !isRemovingStake && (
-        <Flex mt="24px" alignItems="center" justifyContent="space-between">
-          <Text mr="8px" color="textSubtle">
-            { t( 'Annual ROI at current rates' ) }:
-          </Text>
-          <AnnualRoiContainer alignItems="center" onClick={ () => setShowRoiCalculator( true ) }>
-            <AnnualRoiDisplay>${ formattedAnnualRoi }</AnnualRoiDisplay>
-            <IconButton variant="text" scale="sm">
-              <CalculateIcon color="textSubtle" width="18px"/>
-            </IconButton>
-          </AnnualRoiContainer>
-        </Flex>
-      ) }
       <Button
         isLoading={ pendingTx }
         endIcon={ pendingTx ? <AutoRenewIcon spin color="currentColor"/> : null }

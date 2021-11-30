@@ -1,11 +1,11 @@
 export default {
   masterChef: {
     97: '',
-    56: '0xfc6b1fe618849d36925e3940560aafbd43480272',
+    56: '0x4e34380f4b6abab11b5f44867ad09bd261453a7d',
   },
   sousChef: {
     97: '',
-    56: '0x6ab8463a4185b80905e05a9ff80a2d6b714b9e95',
+    56: '',
   },
   multiCall: {
     97: '',

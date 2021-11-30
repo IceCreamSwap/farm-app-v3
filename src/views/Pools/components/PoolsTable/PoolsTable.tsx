@@ -26,6 +26,7 @@ const StyledTableBorder = styled.div`
   background-color: ${ ( { theme } ) => theme.colors.cardBorder };
   padding: 1px 1px 3px 1px;
   background-size: 400% 400%;
+  margin-top: 1rem;
 `
 
 const ScrollButtonContainer = styled.div`

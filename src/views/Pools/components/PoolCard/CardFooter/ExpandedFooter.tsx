@@ -64,7 +64,7 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ( { pool, account } ) => {
         <Flex alignItems="flex-start">
           { totalStaked && totalStaked.gte( 0 ) ? (
             <>
-              <Balance small value={ getTotalStakedBalance() } decimals={ 0 } unit={ ` ${ stakingToken.symbol }` }/>
+              <Balance small value={ getTotalStakedBalance() } decimals={ 1 } unit={ ` ${ stakingToken.symbol }` }/>
               <span ref={ totalStakedTargetRef }>
                 <HelpIcon color="textSubtle" width="20px" ml="6px" mt="4px"/>
               </span>

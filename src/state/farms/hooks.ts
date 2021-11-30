@@ -10,7 +10,7 @@ import useRefresh from 'hooks/useRefresh'
 import { deserializeToken } from 'state/user/hooks/helpers'
 import { fetchFarmsPublicDataAsync, fetchFarmUserDataAsync, nonArchivedFarms } from '.'
 import { DeserializedFarm, DeserializedFarmsState, DeserializedFarmUserData, FeesProps, SerializedFarm, State } from '../types'
-import { FARM_BUSD_WBNB_PID, FARM_CAKE_WBNB_PID } from '../../config'
+import { FARM_BUSD_WBNB_PID, FARM_VANI_WBNB_PID } from '../../config'
 
 const deserializeFarmUserData = ( farm: SerializedFarm ): DeserializedFarmUserData => {
   return {
@@ -91,7 +91,7 @@ export const usePollCoreFarmData = () => {
   const { fastRefresh } = useRefresh()
 
   useEffect( () => {
-    dispatch( fetchFarmsPublicDataAsync( [ FARM_CAKE_WBNB_PID, FARM_BUSD_WBNB_PID ] ) )
+    dispatch( fetchFarmsPublicDataAsync( [ FARM_VANI_WBNB_PID, FARM_BUSD_WBNB_PID ] ) )
   }, [ dispatch, fastRefresh ] )
 }
 
@@ -154,7 +154,7 @@ export const useLpTokenPrice = ( symbol: string ) => {
 // /!\ Deprecated , use the BUSD hook in /hooks
 
 export const usePriceCakeBusd = (): BigNumber => {
-  const cakeBnbFarm = useFarmFromPid( FARM_CAKE_WBNB_PID )
+  const cakeBnbFarm = useFarmFromPid( FARM_VANI_WBNB_PID )
 
   const cakePriceBusdAsString = cakeBnbFarm.tokenPriceBusd
 

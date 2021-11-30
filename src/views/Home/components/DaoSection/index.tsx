@@ -4,7 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useTranslation } from 'contexts/Localization';
 import ColoredWordHeading from '../ColoredWordHeading';
 
-const DaoSection: React.FC = ( props ) => {
+const DaoSection: React.FC = () => {
     const { t } = useTranslation();
 
     return (

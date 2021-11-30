@@ -74,7 +74,7 @@ const MenuItem: React.FC<FooterProps> = ( {
             </Box>
             <Button
               as="a"
-              href={ `${ PCS_URL }/swap?outputCurrency=${ tokens.spk.address }` }
+              href={ `${ PCS_URL }/swap?outputCurrency=${ tokens.vani.address }` }
               target="_blank"
               scale="sm"
               endIcon={ <ArrowForwardIcon color={ lightColors.backgroundAlt }/> }

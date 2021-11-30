@@ -87,44 +87,12 @@ export const mainnetTokens = {
     'Binance-Peg USD Coin',
     'https://www.centre.io/usdc',
   ),
-  dkt: new Token(
+  vani: new Token(
     MAINNET,
-    '0x7Ceb519718A80Dd78a8545AD8e7f401dE4f2faA7',
+    '0xea6F88a287a821B9917a78D3B5E37C5900c1880d',
     18,
-    'DKT',
-    'Duelist King',
-    'https://duelistking.com/',
-  ),
-  syrup: new Token(
-    MAINNET,
-    '0x009cF7bC57584b7998236eff51b98A168DceA9B0',
-    18,
-    'SYRUP',
-    'SyrupBar Token',
-    'https://pancakeswap.finance/',
-  ),
-  qsd: new Token(
-    MAINNET,
-    '0x07AaA29E63FFEB2EBf59B33eE61437E1a91A3bb2',
-    18,
-    'QSD',
-    'QIAN second generation dollar',
-    'https://chemix.io/home',
-  ),
-  dot: new Token(
-    MAINNET,
-    '0x7083609fCE4d1d8Dc0C979AAb8c869Ea2C873402',
-    18,
-    'DOT',
-    'Binance-Peg Polkadot Token',
-    'https://polkadot.network/',
-  ),
-  spk: new Token(
-    MAINNET,
-    '0x4f8f2D516Ed7203244973751941C03eb306dF324',
-    18,
-    'SPK',
-    'SuperCAKE',
+    'VANI',
+    'IceCream',
     'https://icecreamswap.finance',
   ),
 }
@@ -153,14 +121,6 @@ export const testnetTokens = {
     'BUSD',
     'Binance USD',
     'https://www.paxos.com/busd/',
-  ),
-  syrup: new Token(
-    TESTNET,
-    '0xfE1e507CeB712BDe086f3579d2c03248b2dB77f9',
-    18,
-    'SYRUP',
-    'SyrupBar Token',
-    'https://pancakeswap.finance/',
   ),
 }
 

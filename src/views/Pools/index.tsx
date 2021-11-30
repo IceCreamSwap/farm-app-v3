@@ -5,7 +5,7 @@ import { ethers } from 'ethers'
 import { formatUnits } from 'ethers/lib/utils'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
-import { Flex, Heading, Text } from 'uikit'
+import { Alert, Flex, Heading, Text } from 'uikit';
 import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
 import { useTranslation } from 'contexts/Localization'
@@ -261,9 +261,9 @@ const Pools: React.FC = () => {
           </FilterContainer>
         </PoolControls>
         { showFinishedPools && (
-          <Text fontSize="20px" color="failure" pb="32px">
-            { t( 'These pools are no longer distributing rewards. Please unstake your tokens.' ) }
-          </Text>
+            <Alert title="Be aware" variant="warning">
+              { t( 'These pools are no longer distributing rewards. Please unstake your tokens.' ) }
+            </Alert>
         ) }
         { account && !userDataLoaded && stakedOnly && (
           <Flex justifyContent="center" mb="4px">

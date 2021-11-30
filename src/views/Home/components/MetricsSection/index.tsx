@@ -1,25 +1,27 @@
 import React from 'react';
-import { ChartIcon, CommunityIcon, FireIcon, Flex, Heading, Image, SwapIcon, Text } from 'uikit';
+import { ChartIcon, CommunityIcon, FireIcon, Flex, Heading, Image, Text } from 'uikit';
 import { useTranslation } from 'contexts/Localization';
 import useTheme from 'hooks/useTheme';
-import { formatNumber } from 'utils/formatBalance';
+import { formatLocalisedCompactNumber, getBalanceNumber } from 'utils/formatBalance';
+import { usePollFarmsPublicData } from 'state/farms/hooks';
+import { useFetchPublicPoolsData } from 'state/pools/hooks';
+import { useTotalValueLocked } from 'hooks/useTotalValueLocked';
+import { useBurnedBalance } from 'hooks/useTokenBalance';
+import tokens from 'config/constants/tokens';
 import IconCard, { IconCardData } from '../IconCard';
 import StatCardContent from './StatCardContent';
-import { usePollFarmsPublicData } from '../../../../state/farms/hooks';
-import { useFetchPublicPoolsData } from '../../../../state/pools/hooks';
-import { useTotalValueLocked } from '../../../../hooks/useTotalValueLocked';
 
 const Stats = () => {
     const { t } = useTranslation();
     const { theme } = useTheme();
 
-    usePollFarmsPublicData()
-    useFetchPublicPoolsData()
+    usePollFarmsPublicData();
+    useFetchPublicPoolsData();
 
-    const totalValueLocked = useTotalValueLocked()
-    const tvlString = totalValueLocked || '_'
+    const totalValueLocked = useTotalValueLocked();
+    const tvlString = totalValueLocked || '_';
 
-    const totalBurnedTokens = formatNumber( 8765, 0, 0 ); // TODO: GET FROM CONTRACT.
+    const burnedBalance = formatLocalisedCompactNumber( getBalanceNumber( useBurnedBalance( tokens.vani.address ) ) );
 
     const BurnedCardData: IconCardData = {
         icon: <FireIcon color="secondary" width="36px"/>,
@@ -51,7 +53,7 @@ const Stats = () => {
             <Flex flexDirection={ [ 'column', null, null, 'row' ] }>
                 <IconCard { ...BurnedCardData } mr={ [ null, null, null, '16px' ] } mb={ [ '16px', null, null, '0' ] }>
                     <StatCardContent
-                        headingText={ t( '%burned% burned', { burned: totalBurnedTokens } ) }
+                        headingText={ t( '%burned% burned', { burned: burnedBalance } ) }
                         bodyText={ t( 'Total of burned VANI' ) }
                         highlightColor={ theme.colors.secondary }
                     />
