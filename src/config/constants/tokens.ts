@@ -125,7 +125,7 @@ export const mainnetTokens = {
     18,
     'SPK',
     'SuperCAKE',
-    'https://supercakebsc.finance',
+    'https://icecreamswap.finance',
   ),
 }
 

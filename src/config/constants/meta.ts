@@ -4,8 +4,8 @@ import { PageMeta } from './types'
 export const DEFAULT_META: PageMeta = {
   title: 'IceCream',
   description:
-    'The most popular AMM on BSC! Earn ICE through yield farming, then stake it in Pools to earn more tokens!',
-  image: 'https://app.supercakebsc.finance/images/hero.png',
+    'The most popular AMM on BSC! Earn VANI through yield farming, then stake it in Pools to earn more tokens!',
+  image: 'https://app.icecreamswap.finance/images/logo/logo-square.png',
 }
 
 export const getCustomMeta = ( path: string, t: ContextApi['t'] ): PageMeta => {

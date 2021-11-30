@@ -23,7 +23,7 @@ export const CAKE_PER_BLOCK = 1
 export const BLOCKS_PER_YEAR = (60 / BSC_BLOCK_TIME) * 60 * 24 * 365 // 10512000
 export const CAKE_PER_YEAR = CAKE_PER_BLOCK * BLOCKS_PER_YEAR
 
-export const BASE_URL = 'https://test.supercakebsc.finance'
+export const BASE_URL = 'https://app.icecreamswap.finance'
 
 export const PCS_URL = 'https://pancakeswap.finance'
 export const BASE_ADD_LIQUIDITY_URL = `${ PCS_URL }/add`
@@ -35,4 +35,4 @@ export const BASE_BSC_SCAN_URLS = {
 export const BASE_BSC_SCAN_URL = BASE_BSC_SCAN_URLS[ChainId.MAINNET]
 
 export const DEFAULT_TOKEN_DECIMAL = BIG_TEN.pow( 18 )
-export const DEFAULT_GAS_LIMIT = 1_000_000 // Vault takes much gas!
+export const DEFAULT_GAS_LIMIT = 300_000

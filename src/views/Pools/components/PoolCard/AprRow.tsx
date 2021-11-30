@@ -41,7 +41,7 @@ const AprRow: React.FC<AprRowProps> = ( { pool, stakedBalance, performanceFee = 
   const stakingTokenBalance = userData?.stakingTokenBalance ? new BigNumber( userData.stakingTokenBalance ) : BIG_ZERO
 
   const tooltipContent = isAutoVault
-    ? t( 'APY includes compounding, APR doesn’t. This pool’s ICE is compounded automatically, so we show APY.' )
+    ? t( 'APY includes compounding, APR doesn’t. This pool’s VANI is compounded automatically, so we show APY.' )
     : t( 'This pool’s rewards aren’t compounded automatically, so we show APR' )
 
   const { targetRef, tooltip, tooltipVisible } = useTooltip( tooltipContent, { placement: 'bottom-start' } )

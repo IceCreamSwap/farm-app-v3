@@ -1,8 +1,8 @@
 {
   "short_name": "IceCream",
   "name": "IceCream",
-  "description": "Farm ICE with Pancake LP Tokens",
-  "homepage_url": "https://supercakebsc.finance",
+  "description": "Farm VANI with LP Tokens",
+  "homepage_url": "https://app.icecreamswap.finance/",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#1FC7D4",

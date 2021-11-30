@@ -16,11 +16,11 @@ export const footerLinks: ( t: ContextApi['t'] ) => FooterLinkType[] = ( t ) => 
     items: [
       {
         label: 'Github',
-        href: 'https://github.com/supercake',
+        href: 'https://github.com/icecreamswap',
       },
       {
         label: t( 'Documentation' ),
-        href: 'https://docs.supercakebsc.finance',
+        href: 'https://docs.icecreamswap.finance',
       },
     ],
   },

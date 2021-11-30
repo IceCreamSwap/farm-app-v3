@@ -68,7 +68,7 @@ const RoiCalculatorModal: React.FC<RoiCalculatorModalProps> = ( {
   stakingTokenPrice,
   multiplier,
   initialValue,
-  earningTokenSymbol = 'ICE',
+  earningTokenSymbol = 'VANI',
   autoCompoundFrequency = 0,
   performanceFee = 0,
   isFarm = false,
