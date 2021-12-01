@@ -22,6 +22,7 @@ interface BackgroundColorProps extends FlexProps {
   backgroundColor?: string
   backgroundImage?: string
   getPadding?: () => string
+  borderBottom?: string
 }
 
 const BackgroundColor = styled( Flex )<BackgroundColorProps>`
@@ -30,11 +31,18 @@ const BackgroundColor = styled( Flex )<BackgroundColorProps>`
   align-items: center;
   z-index: ${ ( { index } ) => index - 1 };
   background: ${ ( { backgroundColor, theme } ) => backgroundColor || theme.colors.background };
+  
+  ${ ( { borderBottom } ) => borderBottom && (`
+      border-bottom: ${borderBottom};
+  `) };
 
   ${ ( { backgroundImage } ) => backgroundImage && (`
     background-image: url(${backgroundImage});
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+    ${ ( { theme } ) => theme.mediaQueries.md } {
+        background-size: contain;
+    }
   `) };
   padding: ${ ( { getPadding } ) => getPadding() };
 `

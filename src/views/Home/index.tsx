@@ -6,7 +6,7 @@ import MetricsSection from './components/MetricsSection';
 import StarsEffect from './components/StarsEffect';
 import NftsSection from './components/NftsSection';
 import DaoSection from './components/DaoSection';
-import { InnerWedgeWrapper, OuterWedgeWrapper, WedgeTopLeft, WedgeTopRight } from './components/WedgeSvgs';
+import { InnerWedgeWrapper, OuterWedgeWrapper, WedgeTopLeft } from './components/WedgeSvgs';
 
 const Home: React.FC = () => {
     const { theme } = useTheme();
@@ -32,6 +32,7 @@ const Home: React.FC = () => {
             <PageSection
                 innerProps={ { style: { ...HomeSectionContainerStyles, overflow: 'hidden' } } }
                 backgroundImage='radial-gradient(ellipse at bottom, #301236 0%, #090a0f 100%);'
+                borderBottom='1px solid #ffffff11'
                 index={ 2 }
                 hasCurvedDivider={ false }
             >
@@ -48,6 +49,7 @@ const Home: React.FC = () => {
                 innerProps={ { style: HomeSectionContainerStyles } }
                 backgroundImage='/images/home/dao/background.png'
                 backgroundColor='#000000'
+                borderBottom='6px solid black'
                 index={ 3 }
                 hasCurvedDivider={ false }
             >

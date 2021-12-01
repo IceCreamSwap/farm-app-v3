@@ -5,8 +5,27 @@ import { useTranslation } from 'contexts/Localization';
 import styled from 'styled-components';
 import ColoredWordHeading from '../ColoredWordHeading';
 
+const DescriptionWrapper = styled( Flex )`
+    width: 100%;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    ${ ( { theme } ) => theme.mediaQueries.md } {
+        text-align: left;
+        margin-top: 0;
+    }
+`;
+
 const ImagesWrapper = styled( Flex )`
     position: relative;
+    width: 50%;
+    margin: 2rem auto;
+    
+    ${ ( { theme } ) => theme.mediaQueries.md } {
+        margin: 0 0 0 3rem;
+    }
 `;
 
 const NftsSection: React.FC = () => {
@@ -19,7 +38,7 @@ const NftsSection: React.FC = () => {
             justifyContent="center"
             minHeight={ 400 }
         >
-            <Flex
+            <DescriptionWrapper
                 flexDirection="column"
                 flex="1"
                 ml={ [ null, null, null, null ] }
@@ -42,9 +61,9 @@ const NftsSection: React.FC = () => {
                         { t( 'Learn' ) }
                     </Link>
                 </Flex>
-            </Flex>
+            </DescriptionWrapper>
             <ImagesWrapper>
-                <img src='/images/home/nfts/shop.png' alt='Shop' style={ { height: '300px' } }/>
+                <img src='/images/home/nfts/shop.png' alt='Shop'/>
                 <img src='/images/home/nfts/coin.gif' alt='Coin' style={ { position: 'absolute', top: 27, left: -24 } }/>
             </ImagesWrapper>
         </Flex>

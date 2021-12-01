@@ -2,19 +2,32 @@ import React from 'react';
 import { Button, Flex, Link, Text } from 'uikit';
 import { Link as RouterLink } from 'react-router-dom';
 import { useTranslation } from 'contexts/Localization';
+import styled from 'styled-components';
 import ColoredWordHeading from '../ColoredWordHeading';
+
+const DescriptionWrapper = styled( Flex )`
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    text-shadow: #000000cc 0px 0 7px;
+    
+    ${ ( { theme } ) => theme.mediaQueries.md } {
+        width: 50%;
+        margin-left: 50%;
+        align-items: flex-start;
+        margin-left: 50%;
+        text-shadow: #00000033 0px 0 4px;
+        text-align: left;
+    }
+`;
 
 const DaoSection: React.FC = () => {
     const { t } = useTranslation();
 
     return (
-        <Flex
-            flexDirection="column"
-            alignItems='flex-start'
-            justifyContent='center'
-            ml='50%'
-            minHeight={380}
-        >
+        <DescriptionWrapper minHeight={ 380 }>
             <ColoredWordHeading text={ t( 'DAO.' ) }/>
             <Text color="textSubtle" mb="24px" style={ { whiteSpace: 'pre-wrap' } }>
                 { t( 'Community engagement has never had a better place. VANI for association.\nDecisiveness is for the decentralized.' ) }
@@ -31,7 +44,7 @@ const DaoSection: React.FC = () => {
                     { t( 'Learn' ) }
                 </Link>
             </Flex>
-        </Flex>
+        </DescriptionWrapper>
     );
 };
 
