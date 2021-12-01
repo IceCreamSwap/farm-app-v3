@@ -40,9 +40,6 @@ const BackgroundColor = styled( Flex )<BackgroundColorProps>`
     background-image: url(${backgroundImage});
     background-repeat: no-repeat;
     background-size: cover;
-    ${ ( { theme } ) => theme.mediaQueries.md } {
-        background-size: contain;
-    }
   `) };
   padding: ${ ( { getPadding } ) => getPadding() };
 `
