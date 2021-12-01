@@ -15,7 +15,6 @@
     "format:write": "prettier --write '**/*.{js,jsx,ts,tsx}'",
     "updateLPsAPR": "NODE_PATH=./src ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/updateLPsAPR.ts",
     "prepare": "husky install",
-    "deploy:testnet": "PUBLIC_URL=https://test.icecreamswap.finance/ yarn build && rm -rf ../test.icecreamswap.finance/* && cp -Rp ./build/* ../test.icecreamswap.finance && git -C ../test.icecreamswap.finance add . && git -C ../test.icecreamswap.finance commit -am \"release deployment\" && git -C ../test.icecreamswap.finance push",
     "deploy:mainnet": "PUBLIC_URL=https://app.icecreamswap.finance/ yarn build && rm -rf ../app.icecreamswap.finance/* && cp -Rp ./build/* ../app.icecreamswap.finance && git -C ../app.icecreamswap.finance add . && git -C ../app.icecreamswap.finance commit -am \"release deployment\" && git -C ../app.icecreamswap.finance push"
   },
   "browserslist": {
