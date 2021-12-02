@@ -13,11 +13,19 @@ export const footerLinks: ( t: ContextApi['t'] ) => FooterLinkType[] = ( t ) => 
     ],
   },
   {
-    label: t( 'Developers' ),
+    label: t( 'Official links' ),
     items: [
       {
         label: 'Github',
         href: 'https://github.com/icecreamswap',
+      },
+      {
+        label: 'Telegram',
+        href: 'https://t.me/IceCreamSwap',
+      },
+      {
+        label: 'Twitter',
+        href: 'https://twitter.com/SwapIceCream',
       },
     ],
   },
