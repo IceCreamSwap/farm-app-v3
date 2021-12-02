@@ -10,16 +10,24 @@ const OuterWedgeWrapper = styled.div`
   height: 100%;
   right: 0px;
   top: 0px;
-`
+`;
 
-const StarsEffect: React.FC = () => {
+interface StarsEffectProps {
+    isDark?: boolean
+}
+
+const StarsEffect: React.FC<StarsEffectProps> = ( props ) => {
+    const { isDark } = props;
+
+    const classNameAttr = isDark ? 'night' : 'day';
+
     return (
         <OuterWedgeWrapper>
-            <div id="stars" />
-            <div id="stars2" />
-            <div id="stars3" />
+            <div id="stars" className={ classNameAttr }/>
+            <div id="stars2" className={ classNameAttr }/>
+            <div id="stars3" className={ classNameAttr }/>
         </OuterWedgeWrapper>
-    )
-}
+    );
+};
 
 export default StarsEffect;

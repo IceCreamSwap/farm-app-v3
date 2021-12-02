@@ -41,7 +41,7 @@ const Home: React.FC = () => {
                         <WedgeTopLeft/>
                     </InnerWedgeWrapper>
                 </OuterWedgeWrapper>
-                <StarsEffect/>
+                <StarsEffect isDark={ theme.isDark }/>
                 <NftsSection/>
             </PageSection>
 
