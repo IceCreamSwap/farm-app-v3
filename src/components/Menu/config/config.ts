@@ -33,6 +33,11 @@ const config: ( t: ContextApi['t'] ) => ConfigMenuItemsType[] = ( t ) => [
         type: DropdownMenuItemType.EXTERNAL_LINK,
       },
       {
+        label: t( 'Analytics' ),
+        href: 'https://info.icecreamswap.finance/',
+        type: DropdownMenuItemType.EXTERNAL_LINK,
+      },
+      {
         type: DropdownMenuItemType.DIVIDER,
       },
       {
