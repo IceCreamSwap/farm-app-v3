@@ -3,6 +3,7 @@ import { Button, Flex, Link, Text } from 'uikit';
 import { Link as RouterLink } from 'react-router-dom';
 import { useTranslation } from 'contexts/Localization';
 import styled from 'styled-components';
+import { GITBOOK_URL } from 'config';
 import ColoredWordHeading from '../ColoredWordHeading';
 
 const DescriptionWrapper = styled( Flex )`
@@ -57,7 +58,7 @@ const NftsSection: React.FC = () => {
                             </Text>
                         </RouterLink>
                     </Button>
-                    <Link external href='https://docs.pancakeswap.finance/'>
+                    <Link external href={ GITBOOK_URL }>
                         { t( 'Learn' ) }
                     </Link>
                 </Flex>

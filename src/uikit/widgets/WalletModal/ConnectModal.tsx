@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled, { useTheme } from 'styled-components'
+import { GITBOOK_URL } from 'config';
 import getExternalLinkProps from '../../util/getExternalLinkProps'
 import Grid from '../../components/Box/Grid'
 import Box from '../../components/Box/Box'
@@ -80,7 +81,7 @@ const ConnectModal: React.FC<Props> = ( { login, onDismiss = () => null, display
           </Text>
           <Button
             as="a"
-            href="https://docs.pancakeswap.finance/get-started/connection-guide"
+            href={ GITBOOK_URL }
             variant="subtle"
             width="100%"
             { ...getExternalLinkProps() }

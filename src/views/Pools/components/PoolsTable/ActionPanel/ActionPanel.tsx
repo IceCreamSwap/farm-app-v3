@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import { Box, Button, Flex, HelpIcon, Link, LinkExternal, MetamaskIcon, Skeleton, Text, TimerIcon, useTooltip } from 'uikit'
-import { BASE_BSC_SCAN_URL } from 'config'
+import { BASE_BSC_SCAN_URL, PCS_URL } from 'config';
 import { getBscScanLink } from 'utils'
 import { useBlock } from 'state/block/hooks'
 import BigNumber from 'bignumber.js'
@@ -221,15 +221,17 @@ const ActionPanel: React.FC<ActionPanelProps> = ( { account, pool, userDataLoade
         { (isXs || isSm || isMd) && totalStakedRow }
         { shouldShowBlockCountdown && blocksRow }
         <Flex mb="8px" justifyContent={ [ 'flex-end', 'flex-end', 'flex-start' ] }>
-          <LinkExternal href={ `/info/token/${ earningToken.address }` } bold={ false }>
+          <LinkExternal href={ `${ PCS_URL }/info/token/${ earningToken.address }` } bold={ false }>
             { t( 'See Token Info' ) }
           </LinkExternal>
         </Flex>
-        <Flex mb="8px" justifyContent={ [ 'flex-end', 'flex-end', 'flex-start' ] }>
-          <LinkExternal href={ earningToken.projectLink } bold={ false }>
-            { t( 'View Project Site' ) }
-          </LinkExternal>
-        </Flex>
+        { pool.sousId !== 0 && (
+          <Flex mb="8px" justifyContent={ [ 'flex-end', 'flex-end', 'flex-start' ] }>
+            <LinkExternal href={ earningToken.projectLink } bold={ false }>
+                { t( 'View Project Site' ) }
+            </LinkExternal>
+          </Flex>
+        )}
         { poolContractAddress && (
           <Flex mb="8px" justifyContent={ [ 'flex-end', 'flex-end', 'flex-start' ] }>
             <LinkExternal

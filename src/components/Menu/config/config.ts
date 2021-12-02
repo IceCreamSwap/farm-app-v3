@@ -23,13 +23,21 @@ const config: ( t: ContextApi['t'] ) => ConfigMenuItemsType[] = ( t ) => [
     hideSubNav: true,
     items: [
       {
-        label: t( 'Blog' ),
-        href: 'https://medium.com/pancakeswap',
+        label: t( 'Exchange' ),
+        href: 'https://exchange.icecreamswap.finance/#/swap',
         type: DropdownMenuItemType.EXTERNAL_LINK,
       },
       {
+        label: t( 'Liquidity' ),
+        href: 'https://exchange.icecreamswap.finance/#/pool',
+        type: DropdownMenuItemType.EXTERNAL_LINK,
+      },
+      {
+        type: DropdownMenuItemType.DIVIDER,
+      },
+      {
         label: t( 'Docs' ),
-        href: 'https://docs.pancakeswap.finance',
+        href: 'https://swapicecream.gitbook.io/icecreamswap-2-0/',
         type: DropdownMenuItemType.EXTERNAL_LINK,
       },
     ],

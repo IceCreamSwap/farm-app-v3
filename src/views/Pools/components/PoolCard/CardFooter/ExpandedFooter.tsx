@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { getBalanceNumber, getFullDisplayBalance } from 'utils/formatBalance'
 import { useTranslation } from 'contexts/Localization'
 import { Button, Flex, HelpIcon, Link, LinkExternal, MetamaskIcon, Skeleton, Text, TimerIcon, useTooltip } from 'uikit'
-import { BASE_BSC_SCAN_URL } from 'config'
+import { BASE_BSC_SCAN_URL, PCS_URL } from 'config';
 import { useBlock } from 'state/block/hooks'
 import { DeserializedPool } from 'state/types'
 import { getAddress } from 'utils/addressHelpers'
@@ -100,15 +100,17 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ( { pool, account } ) => {
         </Flex>
       ) }
       <Flex mb="2px" justifyContent="flex-end">
-        <LinkExternal href={ `/info/token/${ earningToken.address }` } bold={ false } small>
+        <LinkExternal href={ `${ PCS_URL }/info/token/${ earningToken.address }` } bold={ false } small>
           { t( 'See Token Info' ) }
         </LinkExternal>
       </Flex>
-      <Flex mb="2px" justifyContent="flex-end">
-        <LinkExternal href={ earningToken.projectLink } bold={ false } small>
-          { t( 'View Project Site' ) }
-        </LinkExternal>
-      </Flex>
+      { pool.sousId !== 0 && (
+        <Flex mb="2px" justifyContent="flex-end">
+          <LinkExternal href={ earningToken.projectLink } bold={ false } small>
+            { t( 'View Project Site' ) }
+          </LinkExternal>
+        </Flex>
+      ) }
       { poolContractAddress && (
         <Flex mb="2px" justifyContent="flex-end">
           <LinkExternal

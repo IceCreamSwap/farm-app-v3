@@ -67,12 +67,6 @@ const SettingsModal: React.FC<InjectedModalProps> = ( { onDismiss } ) => {
           </Flex>
           <GasSettings/>
         </Flex>
-        <Flex pt="24px" flexDirection="column" borderTop={ `1px ${ theme.colors.cardBorder } solid` }>
-          <Text bold textTransform="uppercase" fontSize="12px" color="secondary" mb="24px">
-            { t( 'Swaps & Liquidity' ) }
-          </Text>
-          <TransactionSettings/>
-        </Flex>
         <Flex justifyContent="space-between" alignItems="center" mb="24px">
           <Flex alignItems="center">
             <Text>{ t( 'Expert Mode' ) }</Text>

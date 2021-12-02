@@ -1,13 +1,14 @@
 import { FooterLinkType } from 'uikit'
 import { ContextApi } from 'contexts/Localization/types'
+import { GITBOOK_URL } from 'config';
 
 export const footerLinks: ( t: ContextApi['t'] ) => FooterLinkType[] = ( t ) => [
   {
     label: t( 'Help' ),
     items: [
       {
-        label: t( 'Guides' ),
-        href: 'https://docs.pancakeswap.finance/get-started',
+        label: t( 'Documentation' ),
+        href: GITBOOK_URL,
       },
     ],
   },
@@ -17,10 +18,6 @@ export const footerLinks: ( t: ContextApi['t'] ) => FooterLinkType[] = ( t ) => 
       {
         label: 'Github',
         href: 'https://github.com/icecreamswap',
-      },
-      {
-        label: t( 'Documentation' ),
-        href: 'https://docs.icecreamswap.finance',
       },
     ],
   },
