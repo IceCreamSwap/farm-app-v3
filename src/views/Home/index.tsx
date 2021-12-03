@@ -48,7 +48,7 @@ const Home: React.FC = () => {
             <PageSection
                 innerProps={ { style: HomeSectionContainerStyles } }
                 backgroundImage={ theme.isDark ? '/images/home/dao/background.png' : '/images/home/dao/background-light.png' }
-                backgroundColor='#000000'
+                backgroundColor={ theme.isDark ? '#000000' : '#FFC7FF' }
                 borderBottom='6px solid black'
                 index={ 3 }
                 hasCurvedDivider={ false }

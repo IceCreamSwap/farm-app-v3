@@ -37,7 +37,7 @@ const NftsSection: React.FC = () => {
             flexDirection={ [ 'column-reverse', null, null, 'row' ] }
             alignItems={ [ 'flex-end', null, null, 'center' ] }
             justifyContent="center"
-            minHeight={ 400 }
+            minHeight={ 500 }
         >
             <DescriptionWrapper
                 flexDirection="column"

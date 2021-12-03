@@ -39,7 +39,7 @@ const Stats = () => {
         <Flex justifyContent="center" alignItems="center" flexDirection="column">
             <Image src="/images/logo/logo-vertical.svg" alt="IceCream" width={ 110 } height={ 110 }/>
             <Heading textAlign="center" scale="xl" mt="24px" mb="32px" color="#ffffff">
-                { t( 'Audit and Certified.' ) }
+                { t( 'Submitting Audit Report' ) }
             </Heading>
 
             <Text textAlign="center" color="#feb5ff">
