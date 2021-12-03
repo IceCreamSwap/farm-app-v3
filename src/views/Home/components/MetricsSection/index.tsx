@@ -2,6 +2,8 @@ import React from 'react';
 import { ChartIcon, CommunityIcon, FireIcon, Flex, Heading, Image, Text } from 'uikit';
 import { useTranslation } from 'contexts/Localization';
 import useTheme from 'hooks/useTheme';
+import ReactTypingEffect from 'react-typing-effect';
+import styled from 'styled-components';
 import { formatLocalisedCompactNumber, getBalanceNumber } from 'utils/formatBalance';
 import { usePollFarmsPublicData } from 'state/farms/hooks';
 import { useFetchPublicPoolsData } from 'state/pools/hooks';
@@ -10,6 +12,11 @@ import { useBurnedBalance } from 'hooks/useTokenBalance';
 import tokens from 'config/constants/tokens';
 import IconCard, { IconCardData } from '../IconCard';
 import StatCardContent from './StatCardContent';
+
+const CursorWrapper = styled.span`
+    font-weight: 300;
+    color: #ffffff66;
+`
 
 const Stats = () => {
     const { t } = useTranslation();
@@ -39,7 +46,17 @@ const Stats = () => {
         <Flex justifyContent="center" alignItems="center" flexDirection="column">
             <Image src="/images/logo/logo-vertical.svg" alt="IceCream" width={ 110 } height={ 110 }/>
             <Heading textAlign="center" scale="xl" mt="24px" mb="32px" color="#ffffff">
-                { t( 'Submitting Audit Report' ) }
+                <ReactTypingEffect
+                    cursor='|'
+                    cursorRenderer={cursor => <CursorWrapper>{cursor}</CursorWrapper>}
+                    typingDelay={ 2000 }
+                    speed={ 120 }
+                    eraseSpeed={ 75 }
+                    eraseDelay={ 7000 }
+                    text={ [
+                        t( 'Submitting Audit Report' )
+                    ] }
+                />
             </Heading>
 
             <Text textAlign="center" color="#feb5ff">

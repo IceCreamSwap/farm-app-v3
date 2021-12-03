@@ -36,7 +36,7 @@ export const BASE_URL = 'https://app.icecreamswap.finance';
 export const GITBOOK_URL = 'https://swapicecream.gitbook.io/icecreamswap-2-0/';
 export const PCS_URL = 'https://pancakeswap.finance';
 
-export const EXCHANGE_URL = 'https://exchange.icecreamswap.finance';
+export const EXCHANGE_URL = 'https://swap.icecreamswap.finance';
 export const BASE_ADD_LIQUIDITY_URL = `${ EXCHANGE_URL }/#/add`;
 export const BASE_SWAP_URL = `${ EXCHANGE_URL }/#/swap`;
 

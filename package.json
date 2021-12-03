@@ -88,7 +88,8 @@
     "@types/lodash": "^4.14.168",
     "@types/styled-system": "^5.1.10",
     "react-popper": "^2.2.5",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "react-typing-effect": "^2.0.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
