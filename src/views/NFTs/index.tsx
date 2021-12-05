@@ -16,14 +16,14 @@ const NFTs: React.FC = () => {
               { t( 'NFTs' ) }
             </Heading>
             <Heading scale="lg" color="text">
-              { t( 'Reimagined.' ) }
+              { t( 'Coming soon.' ) }
             </Heading>
           </Flex>
         </Flex>
       </PageHeader>
       <Page>
-        <Alert title="Coming soon" variant="info">
-          { t( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.' ) }
+        <Alert title="" variant="info">
+          { t( 'With Partnership and possible cross chain listing, NFTs have never been soo promising. Follow our socials for further updates.' ) }
         </Alert>
       </Page>
     </>

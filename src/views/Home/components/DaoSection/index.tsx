@@ -35,7 +35,7 @@ const DaoSection: React.FC = () => {
             </Text>
             <Flex>
                 <Button mr="16px">
-                    <RouterLink to='/nfts'>
+                    <RouterLink to='/dao'>
                         <Text color="card" bold fontSize="16px">
                             { t( 'Check out' ) }
                         </Text>

@@ -21,6 +21,7 @@ import Pools from './views/Pools'
 const Home = lazy( () => import('./views/Home') )
 const Farms = lazy( () => import('./views/Farms') )
 const NFTs = lazy( () => import('./views/NFTs') )
+const DAO = lazy( () => import('./views/DAO') )
 const NotFound = lazy( () => import('./views/NotFound') )
 
 // This config is required for number formatting
@@ -54,6 +55,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/nfts">
               <NFTs/>
+            </Route>
+            <Route path="/dao">
+              <DAO/>
             </Route>
 
             {/* Redirect */ }
