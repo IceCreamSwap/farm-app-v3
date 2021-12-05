@@ -22,8 +22,8 @@ const pools: SerializedPoolConfig[] = [
   },
   {
     sousId: 4,
-    stakingToken: serializedTokens.vani,
-    earningToken: serializedTokens.glto,
+    stakingToken: serializedTokens.glto,
+    earningToken: serializedTokens.vani,
     contractAddress: {
       97: '',
       56: getMasterChefAddress(),

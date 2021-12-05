@@ -11,7 +11,7 @@ BigNumber.config( {
  * GLOBAL FARMS PIDS
  */
 export const FARM_VANI_WBNB_PID = 1;
-export const FARM_BUSD_WBNB_PID = 5;
+export const FARM_BUSD_WBNB_PID = 3;
 
 /**
  * TOKEN/BLOCK DETAILS
