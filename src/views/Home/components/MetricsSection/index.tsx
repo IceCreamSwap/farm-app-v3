@@ -12,6 +12,7 @@ import { useBurnedBalance } from 'hooks/useTokenBalance';
 import tokens from 'config/constants/tokens';
 import IconCard, { IconCardData } from '../IconCard';
 import StatCardContent from './StatCardContent';
+import { GITBOOK_URL } from '../../../../config';
 
 const CursorWrapper = styled.span`
     font-weight: 300;
@@ -85,8 +86,10 @@ const Stats = () => {
                 <IconCard { ...DoxedDevsCardData } mb={ [ '16px', null, null, '0' ] }>
                     <StatCardContent
                         headingText={ t( 'doxed devs' ) }
-                        bodyText={ t( 'check them out here' ) }
+                        bodyText={ t( 'check them out ' ) }
                         highlightColor={ theme.colors.secondary }
+                        footerLinkText='here'
+                        footerLinkUrl={ GITBOOK_URL }
                     />
                 </IconCard>
             </Flex>
