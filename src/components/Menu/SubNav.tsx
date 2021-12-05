@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link, useLocation } from 'react-router-dom'
 import { ButtonMenu, ButtonMenuItem } from 'uikit'
 import { useTranslation } from 'contexts/Localization'
+import { BASE_SWAP_URL } from 'config';
 
 const StyledNav = styled.nav`
   margin-bottom: 40px;
@@ -28,7 +29,7 @@ const Nav = () => {
   return (
     <StyledNav>
       <ButtonMenu activeIndex={ getActiveIndex( location.pathname ) } scale="sm" variant="subtle">
-        <ButtonMenuItem id="swap-nav-link" to="/swap" as={ Link }>
+        <ButtonMenuItem id="swap-nav-link" to={ BASE_SWAP_URL } as={ Link }>
           { t( 'Swap' ) }
         </ButtonMenuItem>
         <ButtonMenuItem id="pool-nav-link" to="/pool" as={ Link }>

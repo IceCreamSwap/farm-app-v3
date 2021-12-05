@@ -8,6 +8,7 @@ import { useTranslation } from 'contexts/Localization'
 import { getAprData } from 'views/Pools/helpers'
 import BigNumber from 'bignumber.js'
 import { BIG_ZERO } from 'utils/bigNumber'
+import { BASE_SWAP_URL } from 'config';
 
 const AprLabelContainer = styled( Flex )`
   &:hover {
@@ -30,7 +31,7 @@ const Apr: React.FC<AprProps> = ( { pool, showIcon, stakedBalance, performanceFe
 
   const stakingTokenBalance = userData?.stakingTokenBalance ? new BigNumber( userData.stakingTokenBalance ) : BIG_ZERO
 
-  const apyModalLink = stakingToken.address ? `/swap?outputCurrency=${ stakingToken.address }` : '/swap'
+  const apyModalLink = stakingToken.address ? `${ BASE_SWAP_URL }?outputCurrency=${ stakingToken.address }` : BASE_SWAP_URL
 
   const [ onPresentApyModal ] = useModal(
     <RoiCalculatorModal

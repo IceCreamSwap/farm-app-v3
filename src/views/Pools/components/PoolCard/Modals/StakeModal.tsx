@@ -7,6 +7,7 @@ import useToast from 'hooks/useToast'
 import BigNumber from 'bignumber.js'
 import RoiCalculatorModal from 'components/RoiCalculatorModal'
 import { formatNumber, getDecimalAmount, getFullDisplayBalance } from 'utils/formatBalance'
+import { BASE_SWAP_URL } from 'config';
 import { DeserializedPool } from 'state/types'
 import PercentageButton from './PercentageButton'
 import useStakePool from '../../../hooks/useStakePool'
@@ -58,7 +59,7 @@ const StakeModal: React.FC<StakeModalProps> = ( {
   const usdValueStaked = new BigNumber( stakeAmount ).times( stakingTokenPrice )
   const formattedUsdValueStaked = !usdValueStaked.isNaN() && formatNumber( usdValueStaked.toNumber() )
 
-  const getTokenLink = stakingToken.address ? `/swap?outputCurrency=${ stakingToken.address }` : '/swap'
+  const getTokenLink = stakingToken.address ? `${ BASE_SWAP_URL }?outputCurrency=${ stakingToken.address }` : BASE_SWAP_URL
 
   useEffect( () => {
     if ( stakingLimit.gt( 0 ) && !isRemovingStake ) {

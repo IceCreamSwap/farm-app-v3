@@ -3,6 +3,7 @@ import { useTranslation } from 'contexts/Localization'
 import styled from 'styled-components'
 import { Button, Link, Modal, OpenNewIcon, Text } from 'uikit'
 import useTheme from 'hooks/useTheme'
+import { BASE_SWAP_URL } from 'config';
 
 interface NotEnoughTokensModalProps {
   tokenSymbol: string
@@ -32,7 +33,7 @@ const NotEnoughTokensModal: React.FC<NotEnoughTokensModalProps> = ( { tokenSymbo
           symbol: tokenSymbol,
         } ) }
       </Text>
-      <Button mt="24px" as="a" external href="/swap">
+      <Button mt="24px" as="a" external href={ BASE_SWAP_URL }>
         { t( 'Buy' ) } { tokenSymbol }
       </Button>
       <StyledLink href="https://yieldwatch.net" external>
