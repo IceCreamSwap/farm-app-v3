@@ -1,5 +1,6 @@
 import { DropdownMenuItemType, MenuItemsType } from 'uikit'
 import { ContextApi } from 'contexts/Localization/types'
+import { BASE_SWAP_URL, EXCHANGE_URL, GITBOOK_URL } from '../../../config';
 
 export type ConfigMenuItemsType = MenuItemsType & { hideSubNav?: boolean }
 
@@ -24,12 +25,12 @@ const config: ( t: ContextApi['t'] ) => ConfigMenuItemsType[] = ( t ) => [
     items: [
       {
         label: t( 'Exchange' ),
-        href: 'https://exchange.icecreamswap.finance/#/swap',
+        href: BASE_SWAP_URL,
         type: DropdownMenuItemType.EXTERNAL_LINK,
       },
       {
         label: t( 'Liquidity' ),
-        href: 'https://exchange.icecreamswap.finance/#/pool',
+        href: `${ EXCHANGE_URL }/#/pool`,
         type: DropdownMenuItemType.EXTERNAL_LINK,
       },
       {
@@ -42,7 +43,7 @@ const config: ( t: ContextApi['t'] ) => ConfigMenuItemsType[] = ( t ) => [
       },
       {
         label: t( 'Docs' ),
-        href: 'https://swapicecream.gitbook.io/icecreamswap-2-0/',
+        href: GITBOOK_URL,
         type: DropdownMenuItemType.EXTERNAL_LINK,
       },
     ],
