@@ -60,7 +60,7 @@ export const fetchFarmUserEarnings = async ( account: string, farmsToFetch: Seri
   const calls = farmsToFetch.map( ( farm ) => {
     return {
       address: masterChefAddress,
-      name: 'pendingReward',
+      name: 'pendingToken',
       params: [ farm.pid, account ],
     }
   } )

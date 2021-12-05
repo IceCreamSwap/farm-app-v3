@@ -34,9 +34,9 @@ const fetchFarm = async ( farm: SerializedFarm ): Promise<PublicFarmData> => {
     },
     // Balance of LP tokens in the master chef contract
     {
-      address: getMasterChefAddress(), // lpAddress
-      name: 'deposits', // 'balanceOf',
-      params: [ farm.pid ], // [ getMasterChefAddress() ]
+      address: lpAddress,
+      name: 'balanceOf',
+      params: [ getMasterChefAddress() ],
     },
     // Total supply of LP tokens
     {

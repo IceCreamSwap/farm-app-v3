@@ -91,7 +91,7 @@ export const fetchUserStakeBalances = async ( account ) => {
 export const fetchUserPendingRewards = async ( account ) => {
   const souschefCalls = nonMasterPools.map( ( p ) => ({
     address: getAddress( p.contractAddress ),
-    name: 'pendingReward',
+    name: 'pendingToken',
     params: [ account ],
   }) )
 
@@ -108,7 +108,7 @@ export const fetchUserPendingRewards = async ( account ) => {
   // Master Pools
   const masterchefCalls = masterPools.map( ( p ) => ({
     address: getAddress(p.contractAddress),
-    name: 'pendingReward',
+    name: 'pendingToken',
     params: [ `${ p.sousId }`, account ],
   }) )
 
