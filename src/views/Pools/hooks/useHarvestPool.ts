@@ -26,15 +26,15 @@ const harvestPoolBnb = async ( sousChefContract ) => {
   return receipt.status
 }
 
-const useHarvestPool = ( sousId, isUsingBnb = false ) => {
+const useHarvestPool = ( sousId, isMasterPool: boolean, isUsingBnb = false ) => {
   const dispatch = useAppDispatch()
   const { account } = useWeb3React()
   const sousChefContract = useSousChef( sousId )
   const masterChefContract = useMasterchef()
 
   const handleHarvest = useCallback( async () => {
-    if ( sousId === 0 ) {
-      await harvestFarm( masterChefContract, 0 )
+    if ( isMasterPool ) {
+      await harvestFarm( masterChefContract, sousId )
     } else if ( isUsingBnb ) {
       await harvestPoolBnb( sousChefContract )
     } else {
@@ -42,7 +42,7 @@ const useHarvestPool = ( sousId, isUsingBnb = false ) => {
     }
     dispatch( updateUserPendingReward( sousId, account ) )
     dispatch( updateUserBalance( sousId, account ) )
-  }, [ account, dispatch, isUsingBnb, masterChefContract, sousChefContract, sousId ] )
+  }, [ account, dispatch, isMasterPool, isUsingBnb, masterChefContract, sousChefContract, sousId ] )
 
   return { onReward: handleHarvest }
 }

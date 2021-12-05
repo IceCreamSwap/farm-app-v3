@@ -18,6 +18,7 @@ interface HarvestActionProps extends DeserializedPool {
 
 const HarvestAction: React.FunctionComponent<HarvestActionProps> = ( {
                                                                        sousId,
+                                                                       isMasterPool,
                                                                        poolCategory,
                                                                        earningToken,
                                                                        userData,
@@ -33,7 +34,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ( {
   const hasEarnings = earnings.gt( 0 )
   const fullBalance = getFullDisplayBalance( earnings, earningToken.decimals )
   const formattedBalance = formatNumber( earningTokenBalance, 3, 3 )
-  const isCompoundPool = sousId === 0
+  const isCompoundPool = isMasterPool
   const isBnbPool = poolCategory === PoolCategory.BINANCE
 
   const [ onPresentCollect ] = useModal(
@@ -43,6 +44,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ( {
       earningToken={ earningToken }
       earningsDollarValue={ earningTokenDollarBalance }
       sousId={ sousId }
+      isMasterPool={ isMasterPool }
       isBnbPool={ isBnbPool }
       isCompoundPool={ isCompoundPool }
     />,

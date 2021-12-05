@@ -100,7 +100,7 @@ const InfoSection = styled( Box )`
 
 const ActionPanel: React.FC<ActionPanelProps> = ( { account, pool, userDataLoaded, expanded, breakpoints } ) => {
   const {
-    sousId,
+    isMasterPool,
     stakingToken,
     earningToken,
     totalStaked,
@@ -115,7 +115,7 @@ const ActionPanel: React.FC<ActionPanelProps> = ( { account, pool, userDataLoade
   const poolContractAddress = getAddress( contractAddress )
   const { currentBlock } = useBlock()
   const { isXs, isSm, isMd } = breakpoints
-  const showSubtitle = (isXs || isSm) && sousId === 0
+  const showSubtitle = (isXs || isSm) && isMasterPool
 
   const { shouldShowBlockCountdown, blocksUntilStart, blocksRemaining, hasPoolStarted, blocksToDisplay } =
     getPoolBlockInfo( pool, currentBlock )
@@ -126,13 +126,8 @@ const ActionPanel: React.FC<ActionPanelProps> = ( { account, pool, userDataLoade
   const stakingTokenBalance = userData?.stakingTokenBalance ? new BigNumber( userData.stakingTokenBalance ) : BIG_ZERO
   const stakedBalance = userData?.stakedBalance ? new BigNumber( userData.stakedBalance ) : BIG_ZERO
   const poolStakingTokenBalance = stakedBalance.plus( stakingTokenBalance )
-  // const isManualCakePool = sousId === 0
 
   const getTotalStakedBalance = () => {
-    // if ( isManualCakePool ) {
-    //   const manualCakeTotalMinusAutoVault = new BigNumber( totalStaked ).minus( totalCakeInVault )
-    //   return getBalanceNumber( manualCakeTotalMinusAutoVault, stakingToken.decimals )
-    // }
     return getBalanceNumber( totalStaked, stakingToken.decimals )
   }
 
@@ -225,7 +220,7 @@ const ActionPanel: React.FC<ActionPanelProps> = ( { account, pool, userDataLoade
             { t( 'See Token Info' ) }
           </LinkExternal>
         </Flex>
-        { pool.sousId !== 0 && (
+        { !pool.isMasterPool && (
           <Flex mb="8px" justifyContent={ [ 'flex-end', 'flex-end', 'flex-start' ] }>
             <LinkExternal href={ earningToken.projectLink } bold={ false }>
                 { t( 'View Project Site' ) }

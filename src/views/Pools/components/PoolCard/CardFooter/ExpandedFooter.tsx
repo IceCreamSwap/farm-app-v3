@@ -104,7 +104,7 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ( { pool, account } ) => {
           { t( 'See Token Info' ) }
         </LinkExternal>
       </Flex>
-      { pool.sousId !== 0 && (
+      { !pool.isMasterPool && (
         <Flex mb="2px" justifyContent="flex-end">
           <LinkExternal href={ earningToken.projectLink } bold={ false } small>
             { t( 'View Project Site' ) }

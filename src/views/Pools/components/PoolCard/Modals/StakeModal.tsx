@@ -33,11 +33,11 @@ const StakeModal: React.FC<StakeModalProps> = ( {
                                                   isRemovingStake = false,
                                                   onDismiss,
                                                 } ) => {
-  const { sousId, stakingToken, earningTokenPrice, apr, userData, stakingLimit, earningToken } = pool
+  const { sousId, stakingToken, earningTokenPrice, apr, userData, stakingLimit, earningToken, isMasterPool } = pool
   const { t } = useTranslation()
   const { theme } = useTheme()
-  const { onStake } = useStakePool( sousId, isBnbPool )
-  const { onUnstake } = useUnstakePool( sousId, pool.enableEmergencyWithdraw )
+  const { onStake } = useStakePool( sousId, isMasterPool, isBnbPool )
+  const { onUnstake } = useUnstakePool( sousId, isMasterPool, pool.enableEmergencyWithdraw )
   const { toastSuccess, toastError } = useToast()
   const [ pendingTx, setPendingTx ] = useState( false )
   const [ stakeAmount, setStakeAmount ] = useState( '' )

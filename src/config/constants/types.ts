@@ -55,6 +55,7 @@ interface PoolConfigBaseProps {
   harvest?: boolean
   isFinished?: boolean
   enableEmergencyWithdraw?: boolean
+  isMasterPool?: boolean
 }
 
 export interface SerializedPoolConfig extends PoolConfigBaseProps {

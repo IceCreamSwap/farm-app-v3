@@ -9,7 +9,7 @@ import { getSouschefV2Contract } from 'utils/contractHelpers'
 import tokens from 'config/constants/tokens'
 
 export const fetchPoolsBlockLimits = async ( argCurrentBlock ) => {
-  const poolsWithEnd = poolsConfig.filter( ( p ) => p.sousId !== 0 )
+  const poolsWithEnd = poolsConfig.filter( ( p ) => !p.isMasterPool )
 
   // TODO: Remove this temp logic after receiving souschef for handling non-master pools.
   return poolsWithEnd.map( ( cakePoolConfig ) => {

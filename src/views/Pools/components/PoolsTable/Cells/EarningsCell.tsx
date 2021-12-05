@@ -27,8 +27,8 @@ const StyledCell = styled( BaseCell )`
 const EarningsCell: React.FC<EarningsCellProps> = ( { pool, account, userDataLoaded } ) => {
   const { t } = useTranslation()
   const { isMobile } = useMatchBreakpoints()
-  const { sousId, earningToken, poolCategory, userData, earningTokenPrice } = pool
-  const isManualCakePool = sousId === 0
+  const { sousId, earningToken, poolCategory, userData, earningTokenPrice, isMasterPool } = pool
+  const isManualCakePool = isMasterPool
 
   const earnings = userData?.pendingReward ? new BigNumber( userData.pendingReward ) : BIG_ZERO
   const earningTokenBalance = getBalanceNumber( earnings, earningToken.decimals )
@@ -47,6 +47,7 @@ const EarningsCell: React.FC<EarningsCellProps> = ( { pool, account, userDataLoa
       earningToken={ earningToken }
       earningsDollarValue={ earningTokenDollarBalance }
       sousId={ sousId }
+      isMasterPool={ isMasterPool }
       isBnbPool={ isBnbPool }
       isCompoundPool={ isManualCakePool }
     />,

@@ -25,20 +25,20 @@ const StyledCell = styled( BaseCell )`
 const NameCell: React.FC<NameCellProps> = ( { pool } ) => {
   const { t } = useTranslation()
   const { isMobile } = useMatchBreakpoints()
-  const { sousId, stakingToken, earningToken, userData, isFinished, isAutoVault } = pool
+  const { sousId, stakingToken, earningToken, userData, isFinished, isAutoVault, isMasterPool } = pool
 
   const stakingTokenSymbol = stakingToken.symbol
   const earningTokenSymbol = earningToken.symbol
 
   const stakedBalance = userData?.stakedBalance ? new BigNumber( userData.stakedBalance ) : BIG_ZERO
   const isStaked = stakedBalance.gt( 0 )
-  const isManualCakePool = sousId === 0
+  const isManualCakePool = isMasterPool
 
   const showStakedTag = isStaked
 
   let title = `${ t( 'Earn' ) } ${ earningTokenSymbol }`
   let subtitle = `${ t( 'Stake' ) } ${ stakingTokenSymbol }`
-  const showSubtitle = sousId !== 0 || (sousId === 0 && !isMobile)
+  const showSubtitle = !isMasterPool || (isMasterPool && !isMobile)
 
   if ( isAutoVault ) {
     title = t( 'Auto VANI' )
