@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
-import BigNumber from 'bignumber.js'
-import { Text, useMatchBreakpoints } from 'uikit'
-import { useTranslation } from 'contexts/Localization'
-import { DeserializedPool } from 'state/types'
-import { BIG_ZERO } from 'utils/bigNumber'
-import { TokenPairImage } from 'components/TokenImage'
-import BaseCell, { CellContent } from './BaseCell'
+import React from 'react';
+import styled from 'styled-components';
+import BigNumber from 'bignumber.js';
+import { Text, useMatchBreakpoints } from 'uikit';
+import { useTranslation } from 'contexts/Localization';
+import { DeserializedPool } from 'state/types';
+import { BIG_ZERO } from 'utils/bigNumber';
+import { TokenPairImage } from 'components/TokenImage';
+import BaseCell, { CellContent } from './BaseCell';
 
 interface NameCellProps {
   pool: DeserializedPool
@@ -31,10 +31,7 @@ const NameCell: React.FC<NameCellProps> = ( { pool } ) => {
   const earningTokenSymbol = earningToken.symbol
 
   const stakedBalance = userData?.stakedBalance ? new BigNumber( userData.stakedBalance ) : BIG_ZERO
-  const isStaked = stakedBalance.gt( 0 )
-  const isManualCakePool = isMasterPool
-
-  const showStakedTag = isStaked
+  const showStakedTag = stakedBalance.gt( 0 )
 
   let title = `${ t( 'Earn' ) } ${ earningTokenSymbol }`
   let subtitle = `${ t( 'Stake' ) } ${ stakingTokenSymbol }`
@@ -43,9 +40,6 @@ const NameCell: React.FC<NameCellProps> = ( { pool } ) => {
   if ( isAutoVault ) {
     title = t( 'Auto VANI' )
     subtitle = t( 'Automatic restaking' )
-  } else if ( isManualCakePool ) {
-    title = t( 'Manual VANI' )
-    subtitle = `${ t( 'Earn' ) } VANI ${ t( 'Stake' ).toLocaleLowerCase() } VANI`
   }
 
   return (
