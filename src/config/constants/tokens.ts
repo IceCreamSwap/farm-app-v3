@@ -95,6 +95,14 @@ export const mainnetTokens = {
     'IceCream',
     'https://icecreamswap.finance',
   ),
+  glto: new Token(
+      MAINNET,
+      '0x096901973AC5b4dd14728fAE04597b90B2a47da9',
+      18,
+      'GLTO',
+      'Gelato',
+      'https://old.icecreamswap.finance',
+  ),
 }
 
 export const testnetTokens = {

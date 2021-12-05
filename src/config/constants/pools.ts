@@ -15,9 +15,25 @@ const pools: SerializedPoolConfig[] = [
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
-    tokenPerBlock: '0.01',
+    tokenPerBlock: '0.005',
     sortOrder: 1,
     isFinished: false,
+    isMasterPool: true
+  },
+  {
+    sousId: 4,
+    stakingToken: serializedTokens.vani,
+    earningToken: serializedTokens.glto,
+    contractAddress: {
+      97: '',
+      56: getMasterChefAddress(),
+    },
+    poolCategory: PoolCategory.CORE,
+    harvest: true,
+    tokenPerBlock: '0.005',
+    sortOrder: 2,
+    isFinished: false,
+    isMasterPool: true
   },
 ]
 
