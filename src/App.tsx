@@ -20,6 +20,7 @@ import Pools from './views/Pools'
 // Only pool is included in the main bundle because of it's the most visited page
 const Home = lazy( () => import('./views/Home') )
 const Farms = lazy( () => import('./views/Farms') )
+const NFTs = lazy( () => import('./views/NFTs') )
 const NotFound = lazy( () => import('./views/NotFound') )
 
 // This config is required for number formatting
@@ -50,6 +51,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/pools">
               <Pools/>
+            </Route>
+            <Route path="/nfts">
+              <NFTs/>
             </Route>
 
             {/* Redirect */ }
