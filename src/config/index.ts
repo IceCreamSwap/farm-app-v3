@@ -33,7 +33,7 @@ export const DEFAULT_GAS_LIMIT = 300_000;
  * URLS
  */
 export const BASE_URL = 'https://app.icecreamswap.finance';
-export const GITBOOK_URL = 'https://swapicecream.gitbook.io/icecreamswap-2-0/';
+export const GITBOOK_URL = `${BASE_URL}/IEvolution.pdf`;
 export const PCS_URL = 'https://pancakeswap.finance';
 
 export const EXCHANGE_URL = 'https://swap.icecreamswap.finance';
