@@ -86,10 +86,8 @@ const Stats = () => {
                 <IconCard { ...DoxedDevsCardData } mb={ [ '16px', null, null, '0' ] }>
                     <StatCardContent
                         headingText={ t( 'doxed devs' ) }
-                        bodyText={ t( 'check them out ' ) }
+                        bodyText={ t( 'Transparency is all' ) }
                         highlightColor={ theme.colors.secondary }
-                        footerLinkText='here'
-                        footerLinkUrl={ GITBOOK_URL }
                     />
                 </IconCard>
             </Flex>
