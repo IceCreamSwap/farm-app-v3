@@ -1,5 +1,5 @@
 import React from 'react'
-import { AutoRenewIcon, BlockIcon, CommunityIcon, RefreshIcon, Tag, TagProps, TimerIcon, VerifiedIcon, VoteIcon } from 'uikit'
+import { AutoRenewIcon, BlockIcon, StarLineIcon, CommunityIcon, RefreshIcon, Tag, TagProps, TimerIcon, VerifiedIcon, VoteIcon } from 'uikit'
 import { useTranslation } from 'contexts/Localization'
 
 const CoreTag: React.FC<TagProps> = ( props ) => {
@@ -34,6 +34,15 @@ const ManualPoolTag: React.FC<TagProps> = ( props ) => {
   return (
     <Tag variant="secondary" outline startIcon={ <RefreshIcon width="18px" color="secondary" mr="4px"/> } { ...props }>
       { t( 'Manual' ) }
+    </Tag>
+  )
+}
+
+const BonusTag: React.FC<TagProps> = ( props ) => {
+  const { t } = useTranslation()
+  return (
+    <Tag variant="warning" outline startIcon={ <StarLineIcon width="18px" color="warning" mr="4px"/> } { ...props }>
+      { t( 'Bonus' ) }
     </Tag>
   )
 }
@@ -74,4 +83,4 @@ const ClosedTag: React.FC<TagProps> = ( props ) => {
   )
 }
 
-export { CoreTag, CommunityTag, DualTag, ManualPoolTag, CompoundingPoolTag, VoteNowTag, SoonTag, ClosedTag }
+export { CoreTag, CommunityTag, DualTag, ManualPoolTag, CompoundingPoolTag, VoteNowTag, SoonTag, ClosedTag, BonusTag }

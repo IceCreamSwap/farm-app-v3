@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
 import { CardFooter, ExpandableLabel, Flex, HelpIcon, useTooltip } from 'uikit'
 import { DeserializedPool } from 'state/types'
-import { CompoundingPoolTag, ManualPoolTag } from 'components/Tags'
+import { BonusTag, CompoundingPoolTag, ManualPoolTag } from 'components/Tags';
 import ExpandedFooter from './ExpandedFooter'
 
 interface FooterProps {
@@ -22,7 +22,7 @@ const ExpandableButtonWrapper = styled( Flex )`
 `
 
 const Footer: React.FC<FooterProps> = ( { pool, account } ) => {
-  const { isAutoVault } = pool
+  const { isAutoVault, sousId } = pool
   const { t } = useTranslation()
   const [ isExpanded, setIsExpanded ] = useState( false )
 
@@ -39,6 +39,7 @@ const Footer: React.FC<FooterProps> = ( { pool, account } ) => {
     <CardFooter>
       <ExpandableButtonWrapper>
         <Flex alignItems="center">
+          { sousId === 4 && <BonusTag mr={2} /> }
           { isAutoVault ? <CompoundingPoolTag/> : <ManualPoolTag/> }
           { tooltipVisible && tooltip }
           <Flex ref={ targetRef }>
